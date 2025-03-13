@@ -13,7 +13,7 @@ class AdalineRegressor:
     def fit(self, X, Y):
         n_samples, n_features = len(X), len(X[0])
         self.weights = [random.uniform(-0.5, 0.5) for _ in range(n_features)]
-        self.bias = random.uniform(-0.5, 0.5)
+        self.bias = 0
 
         for epoch in range(self.epochs):
             total_error = 0
@@ -23,7 +23,6 @@ class AdalineRegressor:
                 error = Y[i] - Y_pred
 
                 for j in range(n_features):
-                    print(n_features)
                     self.weights[j] += self.learning_rate * error * X[i][j]
                 self.bias += self.learning_rate * error
 
